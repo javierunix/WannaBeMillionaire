@@ -18,8 +18,9 @@ def quizz(question):
         my_string = input("Choose the correct answer: ")
         my_string = my_string.upper()
         if question_dict[my_string] == value[0]:
-            print('Correct!!!')
+            print('Correct! You can move on!!!!')
         else:
-            print("Incorrect!!!")
+            print("You lost!!!!!!")
+            break
 
 quizz(question1)    
