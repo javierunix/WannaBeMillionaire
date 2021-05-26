@@ -2,11 +2,13 @@ import random
 import csv
 
 # create a csv file with questions randomly selected 
-with open("questions.csv", "rb") as source:
-    lines = [line for line in source]
-random_choice = random.sample(lines, 3)
+with open("questions.csv", "rb") as source: # load the csv file with all questions
+    next(source) # skip the first line header
+    lines = [line for line in source] # store the content of the file
+
+random_choice = random.sample(lines, 3) # select 3 questions 
 with open("random_questions.csv", "wb") as sink:
-    sink.write(b"".join(random_choice))
+    sink.write(b"".join(random_choice)) # write the selected questions in a file
 
 # load the random csv file with questions into a dict
 with open('random_questions.csv', mode='r') as inp:
