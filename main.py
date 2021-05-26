@@ -1,10 +1,15 @@
 import random
 import csv
 
-mydict = {}
+# create a csv file with questions randomly selected 
+with open("questions.csv", "rb") as source:
+    lines = [line for line in source]
+random_choice = random.sample(lines, 3)
+with open("random_questions.csv", "wb") as sink:
+    sink.write(b"".join(random_choice))
 
-# load the attached csv file with questions into a dict
-with open('questions.csv', mode='r') as inp:
+# load the random csv file with questions into a dict
+with open('random_questions.csv', mode='r') as inp:
     reader = csv.reader(inp)
     dict_from_csv = {rows[0]:rows[1:5] for rows in reader}
 
