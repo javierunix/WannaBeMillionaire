@@ -1,7 +1,13 @@
 import random
-# This is my main script
-question1 = {"What is a prokaryotic cell?": ["Cell without differentiated nucleus", "Cell with differentiated nucleus", "Cell able to do photosynthesis", "Cell not able to do photosynthesis"], \
-    "In which year was discovered America by Cristopher Columbus": ["1492", "1380", "1560", "1610"]}
+import csv
+
+mydict = {}
+
+# load the attached csv file with questions into a dict
+with open('questions.csv', mode='r') as inp:
+    reader = csv.reader(inp)
+    dict_from_csv = {rows[0]:rows[1:5] for rows in reader}
+
 
 def quizz(question):
     my_list = [0, 1, 2, 3] # list with the number of possible answers
@@ -23,4 +29,4 @@ def quizz(question):
             print("You lost!!!!!!")
             break
 
-quizz(question1)    
+quizz(dict_from_csv)
