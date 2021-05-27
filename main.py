@@ -64,17 +64,45 @@ def sobera(question):
 tprint('Who wants to be a Millionare')
 number_of_question = 1
 money = 0
+consolation_price = 0
 while (move_on == True) and (number_of_question <= 16):
+
     exec(f'move_on = sobera(question{number_of_question})')
+
     if move_on:
-        money = prizes1[number_of_question]
-        print("Now you have %d$. If you fail the following questions you will loose everything." %money)
+
+        if number_of_question < 6:
+            money = prizes1[number_of_question]
+            if number_of_question == 5:
+                consolation_price = prizes1[number_of_question]
+            else:
+                consolation_price = prizes1[0]
+
+        elif number_of_question < 11:
+            print(number_of_question)
+            money = prizes2[number_of_question - 5]
+            if number_of_question == 10:
+                consolation_price = prizes2[number_of_question - 5]
+            else:
+                consolation_price = prizes2[0]
+
+        elif number_of_question < 16:
+            print(number_of_question)
+            money = prizes3[number_of_question - 10]
+            consolation_price = prizes3[0]
+
+        print("Now you have %d$. If you fail the following questions you will keep %d$." %(money, consolation_price))
         you_sure = input("¿Are you sure that you want to continue? ")
         you_sure = you_sure.lower()
         if you_sure == 'no' or you_sure == 'n':
             move_on = False
     else:
-        money = prizes1[0]
+        if number_of_question < 6:
+            money = prizes1[0]
+        elif number_of_question < 11:
+            money = prizes2[0]
+        elif number_of_question < 16:
+            money = prizes3[0]
     number_of_question += 1
 
 print(money)
