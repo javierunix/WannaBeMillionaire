@@ -120,4 +120,4 @@ while (move_on == True) and (number_of_question < 16): # while contestant gives 
             money = prizes3[0] # 32000$
     number_of_question += 1
 
-tprint('You won:  ' + str(money) + '$you')
+tprint('You won:  ' + str(money) + '$')
