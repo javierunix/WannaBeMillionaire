@@ -1,5 +1,7 @@
 import random
 import csv
+from art import * 
+tprint('Who Wants to Be a Millionaire?!')
 
 # create a csv file with questions randomly selected 
 with open("questions.csv", "rb") as source: # load the csv file with all questions
