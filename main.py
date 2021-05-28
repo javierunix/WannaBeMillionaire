@@ -1,10 +1,12 @@
-import csv
-import random
-from art import *
+# importing the libraries
 
-prizes1 = [0, 100, 200, 300, 500, 1000] # first section of prizes
-prizes2 = [1000, 2000, 4000, 8000, 16000, 32000] #  second section of prizes
-prizes3 = [32000, 64000, 125000, 250000, 500000, 1000000] # third section of prizes
+import csv # because we are use a csv file to load the questions
+import random # because we want to randomize questions and answers
+from art import * # because we want good-looking text
+
+
+# ******************* Loading Questions from csv file *******************************
+
 
 with open('questions.csv', newline='') as f:
     reader = csv.reader(f)
@@ -38,7 +40,9 @@ for i in range(len(data)):
 newdata = data_level1 + data_level2 + data_level3 + data_level4 + data_level5 # concatenate all levels list
 newdata.insert(0, header) # include header in position 0
 
-# create the Quizz Superclass
+
+# ********************************* Create the Quizz Superclass **********************************
+
 class Quizz:
 
     def __init__(self, my_list):
@@ -56,6 +60,8 @@ for k in range(1,16):
     exec(f'question{k} = Quizz(newdata[k])')
 
 tprint('Who wants to be a Millionare') # a nice text ;-)
+
+# ************************************** function for asking questions *************************
 
 
 # the function sobera is the responsable for asking questions and evaluating the the answers:
@@ -94,7 +100,13 @@ def sobera(question):
             print("You lost!!!!!!")
             return False
 
+# ************************************** LETS PLAY!!!! ********************************************
 
+
+
+prizes1 = [0, 100, 200, 300, 500, 1000] # first section of prizes
+prizes2 = [1000, 2000, 4000, 8000, 16000, 32000] #  second section of prizes
+prizes3 = [32000, 64000, 125000, 250000, 500000, 1000000] # third section of prizes
 
 move_on = True # one of two exit conditions of the following while loop
 number_of_question = 1 
