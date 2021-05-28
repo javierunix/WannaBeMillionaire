@@ -3,3 +3,4 @@ __pycache__/
 random_questions.csv
 /test.py
 /rules.txt
+/classes.py
