@@ -21,18 +21,19 @@ data_level2 = []
 data_level3 = []
 data_level4 = []
 data_level5 = []
+level_num = 3 # max number of questions of each dificulty level
 
 for i in range(len(data)):
-	if data[i][5] == '1':
+	if data[i][5] == '1' and len(data_level1) < level_num:
 		data_level1.append(data[i])
-	elif data[i][5] == '2':
+	elif data[i][5] == '2' and len(data_level2) < level_num:
 		data_level2.append(data[i])
-	if data[i][5] == '3':
+	if data[i][5] == '3' and len(data_level3) < level_num:
 		data_level3.append(data[i])
-	if data[i][5] == '4':
+	if data[i][5] == '4' and len(data_level4) < level_num:
 		data_level4.append(data[i])
-	if data[i][5] == '5':
+	if data[i][5] == '5' and len(data_level5) < level_num:
 		data_level5.append(data[i])	
 
 newdata = data_level1 + data_level2 + data_level3 + data_level4 + data_level5
-print(newdata)
+print(len(newdata))
