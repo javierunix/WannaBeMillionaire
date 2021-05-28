@@ -1,3 +1,5 @@
 __pycache__/
 .vscode/*
 random_questions.csv
+/test.py
+/rules.txt
